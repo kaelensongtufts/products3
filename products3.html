@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products 3</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            padding: 20px;
+        }
+        #filterButton {
+            display: block;
+            padding: 10px 15px;
+            background-color: #000f5c;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        #fitlerButton:hover {
+            background-color: #766ec6;
+        }
+        select {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px;
+        }
+        
+        #result {
+            max-width: 600px;
+            margin: auto;
+            padding: 15px;
+            background: #c9deff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            color: rgb(40, 11, 11);
+        }
+        .price {
+            font-style: italic;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Our Products</h1>
+    <label for="categorySelect">Select a Category:</label>
+    <select id="categorySelect">
+        <option value="">All Categories</option>
+    </select>
+    <button id="filterButton">Filter</button>
+    <div id="result"></div>
+
+    <script>
+        $(document).ready(function() {
+            let products = "[]"
+
+            // Get category data & create dropdown
+            $.get("products.json", function(data) {
+                products = data;
+                // Make sure there are only only unique categories
+                let categories = new Set();
+                data.forEach(product => {
+                    product.categories.forEach(category => categories.add(category));
+                });
+
+                // Dropdown
+                categories.forEach(category => {
+                    $("#categorySelect").append(`<option value="${category}">${category}</option>`);
+                });
+            });
+
+
+            $("#filterButton").click(function () {
+                let selectedCategory = $("#categorySelect").val();
+                let output = "";
+
+                let filteredProducts = selectedCategory
+                    // Show only selected products
+                    ? products.filter(product => product.categories.includes(selectedCategory))
+                    // Else show all products
+                    : products; 
+                
+                filteredProducts.forEach(product => {
+                    output += `<p class="product-name">${product.name}</p>`;
+                });
+                $("#result").html(output || "<p>No products found.</p>");
+            });
+        });
+    </script>
+
+</body>
+</html>
