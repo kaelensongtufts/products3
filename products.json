@@ -1,0 +1,50 @@
+[
+    {
+        "name": "Colorful Collage Pants",
+        "description": "Multicolored pants with intricate stitching and patchwork",
+        "price": "$45",
+        "categories": ["clothing", "vintage"]
+    },
+    {
+        "name": "Classic Leather Jacket",
+        "description": "Genuine leather biker jacket",
+        "price": "$120",
+        "categories": ["clothing"]
+    },
+    {
+        "name": "Retro Sunglasses",
+        "description": "Rectangular frame 70s-style sunglasses",
+        "price": "$50",
+        "categories": ["accessories", "vintage"]
+    },
+    {
+        "name": "Canvas Backpack",
+        "description": "Durable and stylish canvas backpack from the 60s",
+        "price": "$75",
+        "categories": ["accessories", "vintage"]
+    },
+    {
+        "name": "Combat-Style Leather Boots",
+        "description": "Brown leather boots with buckle details",
+        "price": "$150",
+        "categories": ["shoes"]
+    },
+    {
+        "name": "Casio Watch",
+        "description": "Silver Casio watch from Japan",
+        "price": "$200",
+        "categories": ["electronics"]
+    },
+    {
+        "name": "Linen Pants",
+        "description": "Comfy, white, linen pants",
+        "price": "$45",
+        "categories": ["clothing"]
+    },
+    {
+        "name": "Digital Camera",
+        "description": "2010 Canon digital camera",
+        "price": "$90",
+        "categories": ["electronics"]
+    }
+]
